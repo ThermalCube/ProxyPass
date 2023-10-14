@@ -5,10 +5,6 @@ server {
     server_tokens off;
 
     location / {
-        try_files @backend =503;
-    }
-
-    location @backend {
         proxy_pass ${TARGET};
         proxy_set_header Host ${DOLLAR}host;
         proxy_set_header X-Real-IP ${DOLLAR}remote_addr;
