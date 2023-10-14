@@ -1,6 +1,7 @@
 FROM nginx:1.25-alpine
 
 COPY ./startup.sh /
+COPY ./nginx.conf /etc/nginx/nginx.conf
 COPY ./default.conf.template /etc/nginx/conf.d/
 
 
