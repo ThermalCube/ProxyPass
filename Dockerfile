@@ -29,6 +29,6 @@ RUN touch /var/run/nginx.pid && \
 
 USER nginx:nginx
 
-HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=2 CMD curl -ILfSs http://localhost:80/ -A "HealthCheck: Docker/1.0" || exit 1
+HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=2 CMD curl -s -i http://localhost:80/ -A "HealthCheck: Docker/1.0" | head -1 || exit 1
 
 CMD ["/bin/bash", "-c", "/startup.sh"]
